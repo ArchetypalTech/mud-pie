@@ -1,0 +1,42 @@
+{
+  "name": "mud_fluent",
+  "version": "1.0.0",
+  "description": "blended_mud",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat deploy",
+    "local_node": "npx hardhat node:fluent",
+    "mud:dev:stop": "docker stop $(docker ps -q --filter ancestor=ghcr.io/fluentlabs-xyz/fluent:latest)",
+    "mud:dev": "mprocs -c mprocs_fl.yaml",
+    "mud:dev:intel": "/usr/local/bin/mprocs -c mprocs_fl.yaml",
+    "build:mud": "cd $(grep MUD_ROOT .env | cut -d '=' -f2)/contracts && pnpm build",
+    "build:all": "pnpm run build:mud && pnpm run compile"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@openzeppelin/contracts": "^5.0.2",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "@types/node": "^20.12.12",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^8.0.0",
+    "hardhat": "^2.22.4",
+    "hardhat-deploy": "^0.12.4",
+    "mprocs": "^0.6.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@fluent.xyz/hardhat-plugin": "github:ArchetypalTech/hardhat-blended-plugin#feat/contract-discovery",
+    "@wagmi/core": "^2.16.0",
+    "ethers": "^6.12.2",
+    "fs": "^0.0.1-security",
+    "i18next": "^24.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "viem": "2.x"
+  }
+}
