@@ -12,7 +12,7 @@ This project is set up to ease the process of building your [MUD](https://mud.de
 
 ## To do a remote deploy to a devnet/testnet/mainnet
 6. add a private key to the ENV file // (make sure to have ENV in git ignore - you dont want to be committing that!)
-7. add in RPC targets
+7. add in RPC targets (find them here) and (set theme here)
 8. run ```pnpm mud:deploy:fluent```
 9. You've saved 2 steps, use them to do something creative with your new deploy!!!
 
