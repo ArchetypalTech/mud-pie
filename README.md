@@ -2,6 +2,7 @@
 
 This project is set up to ease the process of building your [MUD](https://mud.dev/introduction) built dApp and deploying to [Fluent](https://docs.fluentlabs.xyz/learn)
 
+NOTE: We are still doing internal testing, this should be ready for external testing from 12/02/2025
 1. Read this guide
 2. Pull this repo
 3. run ```pnpm install```
