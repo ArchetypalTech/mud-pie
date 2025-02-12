@@ -1,6 +1,6 @@
 {
-  "name": "mud_fluent",
-  "version": "1.0.0",
+  "name": "mud_pie",
+  "version": "0.2.0",
   "description": "blended_mud",
   "main": "index.js",
   "scripts": {
