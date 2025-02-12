@@ -1,22 +1,20 @@
 {
   "name": "contracts",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "mud build",
+    "build": "mud tablegen && mud worldgen",
     "clean": "forge clean && shx rm -rf src/**/codegen",
-    "deploy:garnet": "mud deploy --profile=garnet",
-    "deploy:local": "mud deploy",
-    "deploy:redstone": "mud deploy --profile=redstone",
-    "dev": "mud dev-contracts",
+    "deploy:local": "export PATH=\"$HOME/.foundry/bin:$PATH\" && pnpm run build && mud deploy",
+    "deploy:fluent": "export PATH=\"$HOME/.foundry/bin:$PATH\" && pnpm run build && mud deploy --profile=fluent",
     "lint": "pnpm run prettier && pnpm run solhint",
     "prettier": "prettier --write 'src/**/*.sol'",
     "solhint": "solhint --config ./.solhint.json 'src/**/*.sol' --fix",
-    "test": "tsc --noEmit && mud test"
+    "test": "export PATH=\"$HOME/.foundry/bin:$PATH\" && tsc --noEmit && mud test"
   },
   "dependencies": {
-    "@latticexyz/cli": "2.2.19",
+    "@latticexyz/cli": "github:ArchetypalTech/mud-fluent#blended-fork",
     "@latticexyz/schema-type": "2.2.19",
     "@latticexyz/store": "2.2.19",
     "@latticexyz/world": "2.2.19",

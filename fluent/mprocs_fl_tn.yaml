@@ -1,0 +1,8 @@
+procs:
+  contracts:
+    cwd: ../packages/contracts
+    shell: pnpm deploy:fluent
+  client:
+    cwd: ../packages/client
+    shell: pnpm dev:testnet
+

@@ -16,8 +16,10 @@ import {
 import { encodeEntity, syncToRecs } from "@latticexyz/store-sync/recs";
 
 import { getNetworkConfig } from "./getNetworkConfig";
+
 import { world } from "./world";
 import IWorldAbi from "contracts/out/IWorld.sol/IWorld.abi.json";
+
 import { createBurnerAccount, transportObserver, ContractWrite } from "@latticexyz/common";
 import { transactionQueue, writeObserver } from "@latticexyz/common/actions";
 
@@ -43,10 +45,14 @@ export async function setupNetwork() {
    * (https://viem.sh/docs/clients/public.html)
    */
   const clientOptions = {
-    chain: networkConfig.chain,
-    transport: transportObserver(fallback([webSocket(), http()])),
-    pollingInterval: 1000,
+      chain: networkConfig.chain,
+      transport: transportObserver(
+          http(networkConfig.chain.rpcUrls.public.http[0] || networkConfig.chain.rpcUrls.default.http[0])
+      ),
+      // transport: transportObserver(fallback([webSocket(), http()])),
+      pollingInterval: 1000,
   } as const satisfies ClientConfig;
+
 
   const publicClient = createPublicClient(clientOptions);
 
