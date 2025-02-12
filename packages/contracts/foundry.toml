@@ -30,7 +30,7 @@ eth_rpc_url = "https://rpc.garnetchain.com"
 [profile.redstone]
 eth_rpc_url = "https://rpc.redstonechain.com"
 
-[profile.fluent] #TODO: Fix
+[profile.fluent]
 eth_rpc_url = "https://rpc.dev.gblend.xyz/"
 
 [profile.fluent-local]

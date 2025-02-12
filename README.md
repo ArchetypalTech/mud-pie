@@ -22,8 +22,9 @@ these will start an instance of `mprocs` and run the dev stack locally
 
 `intel` based macs will need to install `mprocs` via `brew` or similar as the binary will not run via `pnpm`. if you like me are too cheap to buy a newer laptop until you've driven it to death you want to run `mud:dev:intel` see below. 
 
-2. `Node`: version > 20.3, we use 20.11.x
-3. `pnpm`
+2. `Node`: version >= 20.3, we use 20.11.x
+3. `pnpm` : version >= 9.x, we use 9.8.x
+4. `docker`
 
 ## getting started
 
