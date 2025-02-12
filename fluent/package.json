@@ -8,8 +8,10 @@
     "deploy": "npx hardhat deploy",
     "local-node": "npx hardhat node:fluent",
     "mud:dev:stop": "docker stop $(docker ps -q --filter ancestor=ghcr.io/fluentlabs-xyz/fluent:latest)",
-    "mud:dev": "mprocs -c mprocs_fl.yaml",
-    "mud:dev:intel": "/usr/local/bin/mprocs -c mprocs_fl.yaml",
+    "mud:dev:local": "mprocs -c mprocs_fl_lc.yaml",
+    "mud:dev:local:intel": "/usr/local/bin/mprocs -c mprocs_fl_lc.yaml",
+    "mud:dev:testnet": "mprocs -c mprocs_fl_tn.yaml",
+    "mud:dev:testnet:intel": "/usr/local/bin/mprocs -c mprocs_fl_tn.yaml",
     "build:mud": "cd ../contracts && pnpm build"
   },
   "devDependencies": {

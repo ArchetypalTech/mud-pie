@@ -1,9 +1,9 @@
 procs:
   hardhat:
-    shell: pnpm run local_node
+    shell: pnpm run local-node
   contracts:
     cwd: ../packages/contracts
-    shell: pnpm build
+    shell: pnpm deploy:local 
   client:
     cwd: ../packages/client
     shell: pnpm dev

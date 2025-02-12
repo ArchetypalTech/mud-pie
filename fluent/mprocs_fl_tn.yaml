@@ -1,10 +1,8 @@
 procs:
-  hardhat:
-    shell: pnpm run local_node
   contracts:
     cwd: ../packages/contracts
-    shell: pnpm build
+    shell: pnpm deploy:fluent
   client:
     cwd: ../packages/client
-    shell: pnpm dev
+    shell: pnpm dev:testnet
 
