@@ -19,10 +19,13 @@ This repo therefore combines `Forge` and `Hardhat` so you can deploy a `MUD` app
 1. `mprocs`
 We use `mprocs` as a multiplexor for local dev builds.
 
-**note** the commands in the `package.json` `mud:dev` and `mud:dev:intel`
-these will start an instance of `mprocs` and run the dev stack locally
+**note** the commands in the `package.json`: 
+- `mud:dev:local` and
+- `mud:dev:local:intel`
 
-`intel` based macs will need to install `mprocs` via `brew` or similar as the binary will not run via `pnpm`. if you like me are too cheap to buy a newer laptop until you've driven it to death you want to run `mud:dev:intel` see below. 
+these commands start an instance of `mprocs` and run the dev stack locally.
+
+`intel` based macs will need to install `mprocs` via `brew` or similar as the binary will not run via `pnpm`. If you like me are too cheap to buy a newer laptop until you've driven it to death you want to run `mud:dev:local:intel` see below. 
 
 2. `Node`: version >= 20.3, we use 20.11.x
 3. `pnpm` : version >= 9.x, we use 9.8.x
@@ -38,16 +41,20 @@ these will start an instance of `mprocs` and run the dev stack locally
 thats it folks! no not really...
 
 ### running a local deploy
-`pnpm mud:dev` *nb if you are on an intel mac it is `pnpm mud:dev:intel`
-
-### running a remote deploy
-`pnpm mud:dev:local`
+`pnpm mud:dev:local` *nb if you are on an intel mac it is `pnpm mud:dev:local:intel`
 
 ### running a testnet deploy
-`pnpm mud:dev:testnet`
+`pnpm mud:dev:testnet` (or again `mud:dev:testnet:intel`
 
 ### running a test suite
 `pnpm mud:test`
+
+you should now see in your terminal a window with the running processes and if you navigate to `localhost:3000` you should see the web client.
+
+**NOTE**
+
+you will need to amend the `.env` files to add keys. see the files in `packages/contracts/.env` and `packages/client/.env`
+also you will need to change the `VITE_CHAIN_ID` var in `packages/client/.env` to reflect the chain id for the chain. 1337 for local and 20993 for the fluent testnet.
 
 ### stopping local containers
 
