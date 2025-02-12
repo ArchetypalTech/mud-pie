@@ -10,7 +10,9 @@ A `mud-pie` as it stands is a monorepo and  based on MUD from [Lattice](https://
 
 We leverage `forge` to build the ABI's for the contracts and to handle the deployment to a given chain. see [Foundry](https://github.com/foundry-rs/forge-std).
 
-We run a hardhat node locally which is itself a docker container available as the fluent-node. This container is a node that runs a rWASM blended environment. See [hardhat-plugin](https://github.com/fluentlabs-xyz/hardhat-plugin)
+We run a hardhat node locally which is itself a docker container available as the fluent-node. This container is a node that runs a rWASM blended environment. See [hardhat-plugin](https://github.com/fluentlabs-xyz/hardhat-plugin).
+
+This repo therefore combines `Forge` and `Hardhat` so you can deploy a `MUD` app to a `Fluent` chain
 
 ## dev setup requirement's
 
