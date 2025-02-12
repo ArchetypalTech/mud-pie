@@ -39,8 +39,11 @@ thats it folks! no not really...
 `pnpm mud:dev` *nb if you are on an intel mac it is `pnpm mud:dev:intel`
 
 ### running a remote deploy
-
-
+`pnpm mud:dev:local`
+### running a testnet deploy
+`pnpm mud:dev:testnet`
+### running a test suite
+`pnpm mud:test`
 
 ### stopping local containers
 
@@ -54,5 +57,3 @@ or using `pnpm`
 ```sh
     pnpm mud:dev:stop
 ```
-
-### exercises for you dear reader
