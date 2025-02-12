@@ -1,0 +1,10 @@
+procs:
+  hardhat:
+    shell: pnpm run local_node
+  contracts:
+    cwd: ../packages/contracts
+    shell: pnpm build
+  client:
+    cwd: ../packages/client
+    shell: pnpm dev
+
