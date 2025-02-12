@@ -6,12 +6,11 @@
   "scripts": {
     "compile": "npx hardhat compile",
     "deploy": "npx hardhat deploy",
-    "local_node": "npx hardhat node:fluent",
+    "local-node": "npx hardhat node:fluent",
     "mud:dev:stop": "docker stop $(docker ps -q --filter ancestor=ghcr.io/fluentlabs-xyz/fluent:latest)",
     "mud:dev": "mprocs -c mprocs_fl.yaml",
     "mud:dev:intel": "/usr/local/bin/mprocs -c mprocs_fl.yaml",
-    "build:mud": "cd ../contracts && pnpm build",
-    "build:all": "pnpm run build:mud && pnpm run compile"
+    "build:mud": "cd ../contracts && pnpm build"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-ethers": "^3.0.0",

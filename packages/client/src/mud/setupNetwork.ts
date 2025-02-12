@@ -45,10 +45,14 @@ export async function setupNetwork() {
    * (https://viem.sh/docs/clients/public.html)
    */
   const clientOptions = {
-    chain: networkConfig.chain,
-    transport: transportObserver(fallback([webSocket(), http()])),
-    pollingInterval: 1000,
+      chain: networkConfig.chain,
+      transport: transportObserver(
+          http(networkConfig.chain.rpcUrls.public.http[0] || networkConfig.chain.rpcUrls.default.http[0])
+      ),
+      // transport: transportObserver(fallback([webSocket(), http()])),
+      pollingInterval: 1000,
   } as const satisfies ClientConfig;
+
 
   const publicClient = createPublicClient(clientOptions);
 

@@ -39,7 +39,7 @@ const fluentTestnet: MUDChain = {
 
 
 const fluentLocal: MUDChain = {
-  id: 31_337,
+  id: 1337,
   name: 'Fluent Runner',
   network: 'fluent_local',
   nativeCurrency: {
@@ -63,4 +63,4 @@ const fluentLocal: MUDChain = {
  * See https://mud.dev/guides/hello-world/add-chain-client
  * for instructions on how to add networks.
  */
-export const supportedChains: MUDChain[] = [mudFoundry, redstone, garnet];
+export const supportedChains: MUDChain[] = [mudFoundry, redstone, garnet, fluentLocal, fluentTestnet];
