@@ -8,8 +8,7 @@
     "build": "vite build",
     "dev": "wait-port localhost:8545 && vite",
     "dev:testnet": "vite",
-    "preview": "vite preview",
-    "test": "tsc --noEmit"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@latticexyz/common": "2.2.19",

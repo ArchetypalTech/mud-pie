@@ -12,7 +12,8 @@
     "mud:dev:local:intel": "/usr/local/bin/mprocs -c mprocs_fl_lc.yaml",
     "mud:dev:testnet": "mprocs -c mprocs_fl_tn.yaml",
     "mud:dev:testnet:intel": "/usr/local/bin/mprocs -c mprocs_fl_tn.yaml",
-    "build:mud": "cd ../contracts && pnpm build"
+    "build:mud": "cd ../contracts && pnpm build",
+    "mud:test": "cd ../contracts && pnpm test"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-ethers": "^3.0.0",

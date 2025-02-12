@@ -2,15 +2,15 @@
 
 For more details on blended execution you can check the [Building a Blended App](https://docs.fluentlabs.xyz/learn/developer-guides/building-a-blended-app) tutorial.
 
-We are using this as a basis for a `p23` interop. A `p23` interop is itself a `mud-pie`.
+We are using this as a basis for a MUD interop, this interop is therefore a `mud-pie`.
 
-A `mud-pie` is a MUD project that can work in a Blended environment. (that's why a `p23` is a `mud-pie`. duh)
+A `mud-pie` is a MUD project that can work in a Blended environment.
 
-`p23` as it stands in regard to Fluent deployments is a monorepo and the framework is based on MUD from [Lattice](https://mud.dev/introduction).
+A `mud-pie` as it stands is a monorepo and  based on MUD from [Lattice](https://mud.dev/introduction).
 
 We leverage `forge` to build the ABI's for the contracts and to handle the deployment to a given chain. see [Foundry](https://github.com/foundry-rs/forge-std).
 
-We run a hardhat node locally which is itself a docker container available as the fluent-node. This container contains the `fluent` rollup that is capable of working with WASM. See [hardhat-plugin](https://github.com/fluentlabs-xyz/hardhat-plugin)
+We run a hardhat node locally which is itself a docker container available as the fluent-node. This container is a node that runs a rWASM blended environment. See [hardhat-plugin](https://github.com/fluentlabs-xyz/hardhat-plugin)
 
 ## dev setup requirement's
 
@@ -40,8 +40,10 @@ thats it folks! no not really...
 
 ### running a remote deploy
 `pnpm mud:dev:local`
+
 ### running a testnet deploy
 `pnpm mud:dev:testnet`
+
 ### running a test suite
 `pnpm mud:test`
 
@@ -57,3 +59,10 @@ or using `pnpm`
 ```sh
     pnpm mud:dev:stop
 ```
+## gotcha's
+
+when running locally you'll probably want to stop the local node and delete its state if you change the contracts a fair amount. just `rm -rf fluent/.local-node`
+
+change the chain id in the client package to the relevant chain, `/packages/client/.env`
+
+the .env files are in the repo. you'll want to remove them and NOT commit any provate keys in any kind of nen testing environment. this is a demo project. dont forget !
