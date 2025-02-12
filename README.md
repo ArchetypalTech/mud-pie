@@ -34,11 +34,12 @@ these commands start an instance of `mprocs` and run the dev stack locally.
 ## getting started
 
 1. clone this repo. duh.
-2. from the root install the deps:
+2. make sure you have node and pnpm and docker (as mentioned above)
+3. from the root of the repo install the project dependencies:
     `pnpm install`
-3. `cd` into the fluent directory:
+4. `cd` into the fluent directory:
     `cd fluent`
-thats it folks! no not really...
+that's it folks! no not really...
 
 ### running a local deploy
 `pnpm mud:dev:local` *nb if you are on an intel mac it is `pnpm mud:dev:local:intel`
