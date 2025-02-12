@@ -1,3 +1,4 @@
+
 # Blended MUD App's
 
 For more details on blended execution you can check the [Building a Blended App](https://docs.fluentlabs.xyz/learn/developer-guides/building-a-blended-app) tutorial.
@@ -76,3 +77,4 @@ when running locally you'll probably want to stop the local node and delete its 
 change the chain id in the client package to the relevant chain, `/packages/client/.env`
 
 the .env files are in the repo. you'll want to remove them and NOT commit any provate keys in any kind of nen testing environment. this is a demo project. dont forget !
+
