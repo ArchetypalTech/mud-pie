@@ -5,6 +5,11 @@ import '@fluent.xyz/hardhat-plugin';
 import '@nomicfoundation/hardhat-ignition';
 import 'hardhat-deploy';
 
+// NB we will generally not use this for MUD as we run the deploys from 
+// the MUD package and this uses forge under the hood to then deploy 
+// to the Fluent node be it local or remote
+// if you are also deploying contracts compiled by the hardhat compilation
+// chain you'll want to set this accordingly in your own .env
 const DEPLOYER_PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY || '';
 
 const config: HardhatUserConfig = {
@@ -27,7 +32,7 @@ const config: HardhatUserConfig = {
     },
   },
   solidity: {
-    version: '0.8.21',
+    version: '0.8.24',
     settings: {
       optimizer: {
         enabled: true,

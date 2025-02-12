@@ -1,10 +1,12 @@
-# Blended APP
+# Blended MUD App's
 
 For more details you can check the [Building a Blended App](https://docs.fluentlabs.xyz/learn/developer-guides/building-a-blended-app) tutorial.
 
-We are using this as a basis for a ZORG interop.
+We are using this as a basis for a `p23` interop. A `p23` interop is itself a `mud-pie`.
 
-ZORG as it stands in regard to Fluent deployments is a monorepo and the framework is based on MUD from Lattice.
+A `mud-pie` is a MUD project that can work in a Blended environment. (that's why a `p23` is a `mud-pie`. duh, it's blended)
+
+`p23` as it stands in regard to Fluent deployments is a monorepo and the framework is based on MUD from Lattice.
 
 We leverage `anvil` to build the ABI's for the contracts and to handle the deployment to a given chain.
 
@@ -14,26 +16,30 @@ We run a hardhat node locally which is itself a docker container available as th
 
 We use `mprocs` as a multiplexor for local dev builds.
 
-*note* the commands in the `package.json` `mud:dev` and `mud:dev:intel`
+**note** the commands in the `package.json` `mud:dev` and `mud:dev:intel`
 these will start an instance of `mprocs` and run the dev stack locally
 
 intel based macs will need to install `mprocs` via `brew` or similar
 
-stop the containers with
-```docker stop $(docker ps -q --filter ancestor=ghcr.io/fluentlabs-xyz/fluent:latest)```
+stop the containers with:
+```sh
+docker stop $(docker ps -q --filter ancestor=ghcr.io/fluentlabs-xyz/fluent:latest)
+```
+or using `pnpm`
+```sh
+    pnpm mud:dev:stop
+```
+
 note the use of the image name, this might well change
 
 `mprocs` doesn't exit nice with this image or perhaps all images run via docker or perhaps just me.
 
-
-## the hardhat default accounts for reference
+## 13 hardhat default accounts for reference
  Fluent Node Genesis Accounts
  
  Special Accounts (0 ETH):
  0. 0x0000000000000000000000000000000000005210 - System account
  7. 0x43799b91FB174261EC2950ebb819c2CFf2983BdF - Special account
- 15. 0xBa8AB429Ff0AaA5f1Bb8f19f1f9974fFC82Ff161 - Special account
- 19. 0xd92adeA71798aADff13f526556Dea230214E0a30 - Special account
  
  Funded Accounts (100,000 ETH each) with their private keys:
  
@@ -72,29 +78,4 @@ note the use of the image name, this might well change
  
  13. 0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
      Private Key: 0x8b3a350cf5c34c9194ca85829a2df0ec3153be0318b5e2d3348e872092edffba
- 
- 14. 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720
-     Private Key: 0x2a871d0798f97d79848a013d4936a73bf4cc922c825d33c1cf7073dff6d409c6
- 
- 16. 0xBcd4042DE499D14e55001CcbB24a551F3b954096
-     Private Key: 0xf214f2b2cd398c806f84e317254e0f0b801d0643303237d97a22a48e01628897
- 
- 17. 0xbDA5747bFD65F08deb54cb465eB87D40e51B197E
-     Private Key: 0x689af8efa8c651a91ad287602527f3af2fe9f6501a7ac4b061667b5a93e037fd
- 
- 18. 0xcd3B766CCDd6AE721141F452C550Ca635964ce71
-     Private Key: 0x8166f546bab6da521a8369cab06c5d2b9e46670292d85c875ee9ec20e84ffb61
- 
- 20. 0xdD2FD4581271e230360230F9337D5c0430Bf44C0
-     Private Key: 0xde9be858da4a475276426320d5e9262ecfc3ba460bfac56360bfa6c4c28b4ee0
- 
- 21. 0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097
-     Private Key: 0xc526ee95bf44d8fc405a158bb884d9d1238d99f0612e9f33d006bb0789009aaa
- 
- 22. 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
-     Private Key: 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
- 
- 23. 0xFABB0ac9d68B0B445fB7357272Ff202C5651694a
-     Private Key: 0xa267530f49f8280200edf313ee7af6b827f2a8bce2897751d06a843f644967b1
-
 

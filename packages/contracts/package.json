@@ -7,16 +7,18 @@
     "build": "mud build",
     "clean": "forge clean && shx rm -rf src/**/codegen",
     "deploy:garnet": "mud deploy --profile=garnet",
-    "deploy:local": "mud deploy",
     "deploy:redstone": "mud deploy --profile=redstone",
+    "deploy:local": "pnpm run build && mud deploy && pnpm run copy-abi",
+    "deploy:fluent": "pnpm run build && mud deploy --profile=fluent-testnet && pnpm run copy-abi",
     "dev": "mud dev-contracts",
     "lint": "pnpm run prettier && pnpm run solhint",
     "prettier": "prettier --write 'src/**/*.sol'",
     "solhint": "solhint --config ./.solhint.json 'src/**/*.sol' --fix",
-    "test": "tsc --noEmit && mud test"
+    "test": "tsc --noEmit && mud test",
+    "copy-abi": "cp -r out/IWorld.sol/* ../client/src/contracts/ && cp worlds.json ../client/src/contracts/ && cp worlds.json.d.ts ../client/src/contracts/"
   },
   "dependencies": {
-    "@latticexyz/cli": "2.2.19",
+    "@latticexyz/cli": "github:ArchetypalTech/mud-fluent#blended-fork",
     "@latticexyz/schema-type": "2.2.19",
     "@latticexyz/store": "2.2.19",
     "@latticexyz/world": "2.2.19",
