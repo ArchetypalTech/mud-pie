@@ -66,10 +66,25 @@ export async function getNetworkConfig() {
     : world?.blockNumber ?? 0n;
 
   return {
-    privateKey: getBurnerPrivateKey(),
+    privateKey: import.meta.env.VITE_PRIVATE_KEY,
     chainId,
     chain,
     worldAddress,
     initialBlockNumber,
   };
 }
+
+
+// export function getBurnerPrivateKey(cacheKey = "mud:burnerWallet"): Hex {
+//   const cachedPrivateKey = localStorage.getItem(cacheKey);
+
+//   if (cachedPrivateKey != null) {
+//     assertPrivateKey(cachedPrivateKey, cacheKey);
+//     return cachedPrivateKey;
+//   }
+
+//   const privateKey = generatePrivateKey();
+//   console.log("New burner wallet created:", privateKeyToAccount(privateKey));
+//   localStorage.setItem(cacheKey, privateKey);
+//   return privateKey;
+// }
