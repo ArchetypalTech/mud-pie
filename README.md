@@ -68,7 +68,7 @@ Eh voila, you should see the node and/or contracts up, and when you avigate to l
 ![[mud-pie-tmuxup-mac-01.png]]
 screen of mac tmux NODE UP CONTRACTS UP CLIENT UP
 
-![[mud-pie-clientup-mac-01.png]]
+![mud-pie-clientup-mac-01.png](https://github.com/ArchetypalTech/mud-pie/blob/main/mud-pie-clientup-mac-01.png)
 screen of client at local host with increment counter working
 
 
