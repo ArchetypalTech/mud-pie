@@ -102,12 +102,11 @@ when running locally you'll probably want to stop the local node and delete its 
 
 change the chain id in the client package to the relevant chain, `/packages/client/.env`
 
-the .env files are in the repo. you'll want to remove them and NOT commit any private keys in any kind of non testing environment. this is a demo project. dont forget !
+the .env files are in the repo. you'll want to remove them and NOT commit any private keys in any kind of non testing environment. this is a demo project. Don't forget!
 
-## ## If you have dependecy issues
+## ## If you have dependency issues
 
-
-If dependency errors occur, clean packages and clear docker
+If dependency errors occur, clean packages and clear Docker.
 
 ### Clean packages and node_modules
 
@@ -126,9 +125,9 @@ this means that pnpm will create a node_modules folder in each of these paths
 `packages/client/node_modules`
 `packages/contracts/node_modules`
 
-if you want to reset the dependency tree you need to remove all of these folders
+If you want to reset the dependency tree you need to remove all of these folders
 
-you will possibly also have a corresponding pnpm-lock.yaml file in these places:
+You will possibly also have a corresponding pnpm-lock.yaml file in these places:
 
 `/pnpm-lock.yaml`
 `fluent/pnpm-lock.yaml`
