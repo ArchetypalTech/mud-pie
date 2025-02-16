@@ -65,25 +65,23 @@ Eh voila, you should see the node and/or contracts up, and when you avigate to l
 
 `pnpm mud:dev:local`
 
-![[mud-pie-tmuxup-mac-01.png]]
+![mud-pie-tmuxup-mac-01.png](https://github.com/ArchetypalTech/mud-pie/blob/main/mud-pie-tmuxup-mac-01.png)
+
 screen of mac tmux NODE UP CONTRACTS UP CLIENT UP
 
 ![mud-pie-clientup-mac-01.png](https://github.com/ArchetypalTech/mud-pie/blob/main/mud-pie-clientup-mac-01.png)
+
 screen of client at local host with increment counter working
 
+You may get errors to do with any extensions you have and a 404 for the favicon.ico, these can be ignored
+
+Your MUD fluent deploy is working! Congrats.
 
 `pnpm mud:dev:testnet` (having replaced private keys on .env files as above)
 
-//TODO (possibly just point to guide / ore verbose install instructions to keep readme brief)
-screen of mac tmux CONTRACTS UP CLIENT UP
+![screen of block explorer showing those transactions](https://github.com/ArchetypalTech/mud-pie/blob/main/mud-pie-blockexpl-linux-falsepositive-01.png)
 
-//TODO
-screen of client at local host with increment counter working
-
-//TODO
-screen of block explorer showing those transactions
-
-The above works
+Your increment counter clicks show up as transactions on the block explorer.
 
 ## Stopping local containers
 
