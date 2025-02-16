@@ -65,15 +65,16 @@ Eh voila, you should see the node and/or contracts up, and when you avigate to l
 
 `pnpm mud:dev:local`
 
-//TODO
+![[mud-pie-tmuxup-mac-01.png]]
 screen of mac tmux NODE UP CONTRACTS UP CLIENT UP
 
-//TODO
+![[mud-pie-clientup-mac-01.png]]
 screen of client at local host with increment counter working
+
 
 `pnpm mud:dev:testnet` (having replaced private keys on .env files as above)
 
-//TODO
+//TODO (possibly just point to guide / ore verbose install instructions to keep readme brief)
 screen of mac tmux CONTRACTS UP CLIENT UP
 
 //TODO
