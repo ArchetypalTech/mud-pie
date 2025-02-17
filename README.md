@@ -53,13 +53,13 @@ you will need to amend the `.env` files to add keys. see the files in `packages/
 
 You will also need to change the `VITE_CHAIN_ID` var in `packages/client/.env` to reflect the chain id for the chain. 1337 for local and 20993 for the fluent testnet.
 
-### Running a test suite
+### 🚀 Running a test suite
 `pnpm mud:test`
 
 ## Expected Results
- The commands open a `mprocs` terminal with the running processes.
+The commands open a `mprocs` terminal with the running processes.
  
- Use the up and down arrows to see the output from each process and `Ctrl-U`/`Ctrl-D` to scroll through the respective outputs
+Use the up and down arrows to see the output from each process and `Ctrl-U`/`Ctrl-D` to scroll through the respective outputs
 
 ![mud-pie-tmuxup-mac-01.png](https://github.com/ArchetypalTech/mud-pie/blob/main/mud-pie-tmuxup-mac-01.png)
 
@@ -67,15 +67,9 @@ screen of mac tmux NODE UP CONTRACTS UP CLIENT UP
 
 ![mud-pie-clientup-mac-01.png](https://github.com/ArchetypalTech/mud-pie/blob/main/mud-pie-clientup-mac-01.png)
 
-screen of client at local host with increment counter working
-
-You may get errors to do with any extensions you have and a 404 for the favicon.ico, these can be ignored
+You may get errors in the webclient console to do with any extensions you have and a 404 for the favicon.ico, these can be ignored
 
 Your MUD fluent deploy is working! Congrats.
-
-`pnpm mud:dev:testnet` (having replaced private keys on .env files as above)
-
-![screen of block explorer showing those transactions](https://github.com/ArchetypalTech/mud-pie/blob/main/mud-pie-blockexpl-linux-falsepositive-01.png)
 
 Your increment counter clicks show up as transactions on the block explorer.
 
@@ -93,70 +87,8 @@ or using `pnpm`
 ```
 ## gotcha's
 
+see `./fluent/DEV-NOTES.md` for some troubleshooting tips.
+
+## cleanup
 when running locally you'll probably want to stop the local node and delete its state if you change the contracts a fair amount. just `rm -rf fluent/.local-node`
-
-change the chain id in the client package to the relevant chain, `/packages/client/.env`
-
-the .env files are in the repo. you'll want to remove them and NOT commit any private keys in any kind of non testing environment. this is a demo project. Don't forget!
-
-## If you have dependency issues
-
-If dependency errors occur, clean packages and clear Docker.
-
-### Clean packages and node_modules
-
-There are 4 package.json files
-
-The one in the root of the project and:
-`/package.json`
-`fluent/package.json`
-`packages/client/package.json`
-`packages/contracts/package.json`
-
-this means that pnpm will create a node_modules folder in each of these paths 
-
-`/node_modules`
-`fluent/node_modules`
-`packages/client/node_modules`
-`packages/contracts/node_modules`
-
-If you want to reset the dependency tree you need to remove all of these folders
-
-You will possibly also have a corresponding pnpm-lock.yaml file in these places:
-
-`/pnpm-lock.yaml`
-`fluent/pnpm-lock.yaml`
-`packages/client/pnpm-lock.yaml`
-`packages/contracts/pnpm-lock.yaml`
-
-Remove these as well.
-
-### to re install the dependencies:
-
-From the root run `pnpm install`
-
-This should reinstall everything the project needs.
-
-
-### Clear containers
-
-Sometimes dcoker containers can cause conflicts. To see if there is a image hanging or what have you you can use:
-
-`docker ps`
-
-kill anything running
-
-`docker stop whatever_the_name_is`
-
-the local node also keeps its own files (which is handy)
-
-you may want to clean that up as well
-
-`/fluent/.local_node`
-
-so then:
-
-stop the container (if it’s running)
-
-remove `/fluent/.local_node`
 

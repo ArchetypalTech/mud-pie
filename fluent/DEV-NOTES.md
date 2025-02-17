@@ -22,7 +22,7 @@ The one in the root of the project and:
 `packages/client/package.json`
 `packages/contracts/package.json`
 
-this means that pnpm will create a node_modules folder in each of these paths 
+i.e. `pnpm` will create a `node_modules folder in each of these paths 
 
 `/node_modules`
 `fluent/node_modules`
@@ -31,7 +31,7 @@ this means that pnpm will create a node_modules folder in each of these paths
 
 If you want to reset the dependency tree you need to remove all of these folders
 
-You will possibly also have a corresponding pnpm-lock.yaml file in these places:
+You will possibly also have a corresponding `pnpm-lock.yaml` file in these places:
 
 `/pnpm-lock.yaml`
 `fluent/pnpm-lock.yaml`
@@ -42,7 +42,7 @@ Remove these as well.
 
 ### to re install the dependencies:
 
-From the root run `pnpm install`
+From the repo root run `pnpm install`
 
 This should reinstall everything the project needs.
 
