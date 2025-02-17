@@ -1,9 +1,74 @@
-# Blended APP
+# Trouble shooting
 
-For more details you can check the [Building a Blended App](https://docs.fluentlabs.xyz/learn/developer-guides/building-a-blended-app) tutorial.
+Please do ensure you are using the correct dependencies, they are listed in the root README.md. Things will not work other wise.
 
+Please bear in mind this is not tested over every linux distribution and we have seen false positives, this does not mean that the project is not working.
 
-## the hardhat default accounts for reference
+When running locally you'll probably want to stop the local node and delete its state if you change the contracts a fair amount. just `rm -rf fluent/.local-node`
+
+the .env files are in the repo. you'll want to remove them and NOT commit any private keys in any kind of non testing environment. this is a demo project. Don't forget!
+
+## If you have dependency issues
+
+If dependency errors occur, clean packages and clear Docker.
+
+### Clean packages and node_modules
+
+There are 4 package.json files
+
+The one in the root of the project and:
+`/package.json`
+`fluent/package.json`
+`packages/client/package.json`
+`packages/contracts/package.json`
+
+i.e. `pnpm` will create a `node_modules folder in each of these paths 
+
+`/node_modules`
+`fluent/node_modules`
+`packages/client/node_modules`
+`packages/contracts/node_modules`
+
+If you want to reset the dependency tree you need to remove all of these folders
+
+You will possibly also have a corresponding `pnpm-lock.yaml` file in these places:
+
+`/pnpm-lock.yaml`
+`fluent/pnpm-lock.yaml`
+`packages/client/pnpm-lock.yaml`
+`packages/contracts/pnpm-lock.yaml`
+
+Remove these as well.
+
+### to re install the dependencies:
+
+From the repo root run `pnpm install`
+
+This should reinstall everything the project needs.
+
+### Clear containers
+
+Sometimes dcoker containers can cause conflicts. To see if there is a image hanging or what have you you can use:
+
+`docker ps`
+
+kill anything running
+
+`docker stop whatever_the_name_is`
+
+the local node also keeps its own files (which is handy)
+
+you may want to clean that up as well
+
+`/fluent/.local_node`
+
+so then:
+
+stop the container (if it’s running)
+
+remove `/fluent/.local_node`
+
+## the first 13 hardhat default accounts for reference
  Fluent Node Genesis Accounts
  
  Special Accounts (0 ETH):
