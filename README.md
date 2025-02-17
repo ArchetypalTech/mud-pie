@@ -18,12 +18,12 @@ The project has been tested on Mac Intel and Silicon and Ubuntu. Other Linux dis
 
 ## Dev Requirements
 
-1. `mprocs`
-2. `Node`: `version == 20.11.0` (NOTE `23` WILL NOT WORK)
-3. `pnpm` : `version == 9.8.0`
-4. `docker` : we have tested with `27.3.1`
+1. `Node`: `version == 20.11.0` (NOTE `23` WILL NOT WORK)
+1. `pnpm` : `version == 9.8.0`
+3. `docker` : we have tested with `27.3.1`
+4. `mprocs` (installed via `pnpm` but if on an intel mac it must be installed seperately)
 
-Please be aware that these versions matter, latest will not work.
+Please be aware that these versions **matter**, latest will not work.
 
 ## 📦 Install repo with `pnpm`
 
@@ -75,7 +75,7 @@ Your increment counter clicks show up as transactions on the block explorer.
 
 ## Stopping local containers
 
-`mprocs` doesnt seem to like doing this cleanly so:
+`mprocs` doesnt seem to do this cleanly so:
 
 stop the containers with:
 ```sh
@@ -91,4 +91,16 @@ see `./fluent/DEV-NOTES.md` for some troubleshooting tips.
 
 ## cleanup
 when running locally you'll probably want to stop the local node and delete its state if you change the contracts a fair amount. just `rm -rf fluent/.local-node`
+
+## 🔧Available Scripts
+the follwowing scripts are avilable via pnpm from the `fluent` directory:
+
+Script | Description
+-------|------------
+`mud:dev:local` | runs a local Flunet node, builds contrats, deploys for node, runs local web server
+`mud:dev:testnet` | builds comntracts, deploys for testnet, runs local web server
+`mud:dev:stop` | stops the running local fluent node container
+`mud:dev:local:intel` | (for intel macs) runs a local Flunet node, builds contrats, deploys for node, runs local web server
+`mud:dev:testnet:intel` | (for intel macs) builds comntracts, deploys for testnet, runs local web server
+
 
