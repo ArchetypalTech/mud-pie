@@ -97,10 +97,10 @@ the follwowing scripts are avilable via pnpm from the `fluent` directory:
 
 Script | Description
 -------|------------
-`mud:dev:local` | runs a local Flunet node, builds contrats, deploys for node, runs local web server
-`mud:dev:testnet` | builds comntracts, deploys for testnet, runs local web server
+`mud:dev:local` | runs a local Fluent node, builds contracts, deploys for node, runs local web server
+`mud:dev:testnet` | builds contracts, deploys for testnet, runs local web server
 `mud:dev:stop` | stops the running local fluent node container
-`mud:dev:local:intel` | (for intel macs) runs a local Flunet node, builds contrats, deploys for node, runs local web server
-`mud:dev:testnet:intel` | (for intel macs) builds comntracts, deploys for testnet, runs local web server
+`mud:dev:local:intel` | (for intel macs) runs a local Fluent node, builds contracts, deploys for node, runs local web server
+`mud:dev:testnet:intel` | (for intel macs) builds contracts, deploys for testnet, runs local web server
 
 
