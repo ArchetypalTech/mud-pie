@@ -1,65 +1,55 @@
-# Blended MUD Apps - Introduction
 
-We are using this as a basis for a MUD interop, this interop is therefore a `mud-pie`.
+# Blended MUD Apps
 
-A `mud-pie` is a MUD project that can work in a Blended environment.
-
-A `mud-pie` as it stands is a monorepo and  based on MUD from [Lattice](https://mud.dev/introduction).
-
-We leverage `forge` to build the ABI's for the contracts and to handle the deployment to a given chain. see [Foundry](https://github.com/foundry-rs/forge-std).
-
-We run a hardhat node locally which is itself a docker container available as the fluent-node. This container is a node that runs a rWASM blended environment. See [hardhat-plugin](https://github.com/fluentlabs-xyz/hardhat-plugin).
-
-This repo therefore combines `Forge` and `Hardhat` so you can deploy a `MUD` app to a `Fluent` chain
-
-For more details on blended execution you can check the [Building a Blended App](https://docs.fluentlabs.xyz/learn/developer-guides/building-a-blended-app) tutorial.
-
-The project has been tested on Mac Intel and Silicon and Ubuntu. Other Linux distros may show false positives.
-
-## Dev Requirements
+## Dev Setup Requirements
 
 1. `mprocs`
-2. `Node`: `version == 20.11.0` (NOTE `23` WILL NOT WORK)
-3. `pnpm` : `version == 9.8.0`
-4. `docker` : we have tested with `27.3.1`
+We use `mprocs` as a multiplexor for local dev builds.
 
-Please be aware that these versions matter, latest will not work.
+**note** the commands in the `package.json`: 
+- `mud:dev:local` and
+- `mud:dev:local:intel`
 
-## 📦 Install repo with `pnpm`
+these commands start an instance of `mprocs` and run the dev stack locally.
 
-1. Install the dependencies listed above.
-2. clone the reop
-3. `cd mud-pie`
-4. `pnpm install`
+`intel` based macs will need to install `mprocs` via `brew` or similar as the binary will not run via `pnpm`. If you like me are too cheap to buy a newer laptop until you've driven it to death you want to run `mud:dev:local:intel` see below. 
 
-### 🚀 Running a local deploy
-```pnpm mud:dev:local``` 
+2. `Node`: version >= 20.3, we use 20.11.x
+3. `pnpm` : version >= 9.x, we use 9.8.x
+4. `docker`
 
-**nb** if you are on an intel mac it is 
+## Getting Started
 
-```pnpm mud:dev:local:intel```
+1. Clone this repo.
+2. Make sure you have node and pnpm and docker (as mentioned above)
+3. From the root of the repo install the project dependencies:
+    `pnpm install`
+4. `cd` into the fluent directory:
+    `cd fluent`
+that's it folks! no not really...
 
-Navigate to `localhost:3000` to see the running client.
+### Running a local deploy
+`pnpm mud:dev:local` *nb if you are on an intel mac it is `pnpm mud:dev:local:intel`
 
-### 🚀Running a testnet deploy
-```pnpm mud:dev:testnet``` 
-
-(or again `mud:dev:testnet:intel`)
-
-Navigate to `localhost:3000` to see the running client.
+### Running a testnet deploy
 
 **NOTE**
-you will need to amend the `.env` files to add keys. see the files in `packages/contracts/.env` and `packages/client/.env`
 
-You will also need to change the `VITE_CHAIN_ID` var in `packages/client/.env` to reflect the chain id for the chain. 1337 for local and 20993 for the fluent testnet.
+you will need to amend the `.env` files to add keys. see the files in `packages/contracts/.env` and `packages/client/.env`
+also you will need to change the `VITE_CHAIN_ID` var in `packages/client/.env` to reflect the chain id for the chain. 1337 for local and 20993 for the fluent testnet.
+
+`pnpm mud:dev:testnet` (or again `mud:dev:testnet:intel`)
 
 ### Running a test suite
 `pnpm mud:test`
 
+you should now see in your terminal a window with the running processes and if you navigate to `localhost:3000` you should see the web client.
+
 ## Expected Results
- The commands open a `mprocs` terminal with the running processes.
- 
- Use the up and down arrows to see the output from each process and `Ctrl-U`/`Ctrl-D` to scroll through the respective outputs
+
+Eh voila, you should see the node and/or contracts up, and when you avigate to localhost you should se the client test increment counter incrementing when clicked, and this then posts txs to the testnet or the chainid you have set.
+
+`pnpm mud:dev:local`
 
 ![mud-pie-tmuxup-mac-01.png](https://github.com/ArchetypalTech/mud-pie/blob/main/mud-pie-tmuxup-mac-01.png)
 
@@ -99,7 +89,7 @@ change the chain id in the client package to the relevant chain, `/packages/clie
 
 the .env files are in the repo. you'll want to remove them and NOT commit any private keys in any kind of non testing environment. this is a demo project. Don't forget!
 
-## If you have dependency issues
+## ## If you have dependency issues
 
 If dependency errors occur, clean packages and clear Docker.
 
@@ -159,4 +149,6 @@ so then:
 stop the container (if it’s running)
 
 remove `/fluent/.local_node`
+
+
 
