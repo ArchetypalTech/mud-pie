@@ -25,12 +25,12 @@ pnpm install
 ## 🏠 Local Deployment
 Navigate to the `mud-pie/fluent/` dir, then run:
 ```bash
-pnpm mud:dev:local
+pnpm run mud:dev:local
 ``` 
 
 #### Intel mac:
 ```bash
-pnpm mud:dev:local:intel
+pnpm run mud:dev:local:intel
 ```
 
 Point your browser at [http://localhost:3000](http://localhost:3000) to see the running client.
@@ -47,7 +47,7 @@ docker stop $(docker ps -q --filter ancestor=ghcr.io/fluentlabs-xyz/fluent:lates
 ```
 or using `pnpm`
 ```sh
-    pnpm mud:dev:stop
+pnpm run mud:dev:stop
 ```
 
 see `./fluent/DEV-NOTES.md` for some troubleshooting tips.
@@ -98,12 +98,12 @@ You will also need to change the `VITE_CHAIN_ID` var in `packages/client/.env` [
 
 Navigate to the `mud-pie/fluent/` dir, then run:
 ```bash
-pnpm mud:dev:testnet
+pnpm run mud:dev:testnet
 ``` 
 
 #### Intel mac:
 ```bash
-mud:dev:testnet:intel
+pnpm run mud:dev:testnet:intel
 ```
 
 Point your browser at [http://localhost:3000](http://localhost:3000) to see the running client.
