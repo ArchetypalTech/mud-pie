@@ -4,7 +4,7 @@
 
 Package | Version | What
 ------- | ------- | ----
-`node` | 20.11.90 | node server 
+`node` | 20.11.0 | node server 
 `nodenv` | 1.5.0 | node version manager 
 `pnpm` | 9.15.5 | a package manager 
 
