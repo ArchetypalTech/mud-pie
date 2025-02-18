@@ -23,6 +23,8 @@ shell integration:
 nodenv init
 ```
 
+follow the onscreen instructions.
+
 test the install
 ```sh
 curl -fsSL https://github.com/nodenv/nodenv-installer/raw/main/bin/nodenv-doctor | bash
