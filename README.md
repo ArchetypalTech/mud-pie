@@ -19,7 +19,7 @@ The project has been tested on Mac Intel and Silicon and Ubuntu. Other Linux dis
 ## Dev Requirements
 
 1. `Node`: `version == 20.11.0` (NOTE `23` WILL NOT WORK)
-1. `pnpm` : `version == 9.8.0`
+2. `pnpm` : `version == 9.8.0`
 3. `docker` : we have tested with `27.3.1`
 4. `mprocs` (installed via `pnpm` but if on an intel mac it must be installed seperately)
 
