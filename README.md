@@ -109,7 +109,7 @@ Your MUD fluent deploy is working! Congrats.
 
 # 🔧 Available Scripts
 
-the follwowing scripts are avilable via pnpm from the `fluent` directory:
+the following scripts are avilable via pnpm from the `fluent` directory:
 
 | Script                  | Description                                                                                          |
 | ----------------------- | ---------------------------------------------------------------------------------------------------- |
