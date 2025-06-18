@@ -14,6 +14,11 @@ require("@nomicfoundation/hardhat-verify");
 const DEPLOYER_PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY || '';
 
 const config: HardhatUserConfig = {
+  namedAccounts: {
+    deployer: {
+      default: 0,
+    },
+  },
   defaultNetwork: 'local',
   networks: {
     local: {
