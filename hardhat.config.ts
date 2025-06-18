@@ -4,6 +4,7 @@ import '@nomicfoundation/hardhat-toolbox';
 import '@fluent.xyz/hardhat-plugin';
 import '@nomicfoundation/hardhat-ignition';
 import 'hardhat-deploy';
+require("@nomicfoundation/hardhat-verify");
 
 const DEPLOYER_PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY || '';
 
@@ -25,6 +26,25 @@ const config: HardhatUserConfig = {
       accounts: [DEPLOYER_PRIVATE_KEY],
       chainId: 20993,
     },
+  },
+  etherscan: {
+    apiKey: {
+      // It is not required by blockscout. Can be any non-empty string
+      'dev': "API_KEY",
+    },
+    customChains: [
+      {
+        network: "dev",
+        chainId: 20993,
+        urls: {
+          apiURL: "https://optimism-sepolia.blockscout.com/api",
+          browserURL: "https://optimism-sepolia.blockscout.com/"
+        }
+      }
+    ]
+  },
+  sourcify: {
+    enabled: false,
   },
   solidity: {
     version: '0.8.21',
