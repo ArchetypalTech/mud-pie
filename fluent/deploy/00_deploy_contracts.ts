@@ -31,9 +31,13 @@ function findSolDirectories(dir: string): string[] {
 }
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-  const { deployments, getNamedAccounts, ethers, config, network } = hre;
+  const { deployments, ethers, config, network } = hre;
   const { deploy, save, getOrNull } = deployments;
-  const { deployer: deployerAddress } = await getNamedAccounts();
+
+  // Get the deployer address from the private key
+  const provider = new ethers.JsonRpcProvider(network.config.url);
+  const deployerWallet = new ethers.Wallet(DEPLOYER_PRIVATE_KEY, provider);
+  const deployerAddress = deployerWallet.address;
 
   console.log("deployerAddress", deployerAddress);
 
@@ -105,27 +109,27 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     console.log("Deploying GreetingWithWorld contract...");
     const fluentGreetingContractAddress = checkmateValidatorAddress;
 
-  const greetingWithWorld = await deploy("GreetingWithWorld", {
-    from: deployerAddress,
-    args: [fluentGreetingContractAddress],
-    log: true,
-  });
-
-  console.log(
-    `GreetingWithWorld contract deployed at: ${greetingWithWorld.address}`
-  );
-
-  // Verify the contract on Blockscout
-  try {
-    await hre.run("verify:verify", {
-      address: greetingWithWorld.address,
-      constructorArguments: [checkmateValidatorAddress],
+    const greetingWithWorld = await deploy("GreetingWithWorld", {
+      from: deployerAddress,
+      args: [fluentGreetingContractAddress],
+      log: true,
     });
-    console.log("GreetingWithWorld verified on Blockscout");
-  } catch (err: any) {
-    console.error("Verification failed for GreetingWithWorld:", err.message);
+
+    console.log(
+      `GreetingWithWorld contract deployed at: ${greetingWithWorld.address}`
+    );
+
+  // // Verify the contract on Blockscout
+  // try {
+  //   await hre.run("verify:verify", {
+  //     address: greetingWithWorld.address,
+  //     constructorArguments: [checkmateValidatorAddress],
+  //   });
+  //   console.log("GreetingWithWorld verified on Blockscout");
+  // } catch (err: any) {
+  //   console.error("Verification failed for GreetingWithWorld:", err.message);
+  // }
   }
-};
 };
 
 async function deployWasmContract(
