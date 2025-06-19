@@ -10,7 +10,7 @@ const DEPLOYER_PRIVATE_KEY =
   process.env.DEPLOYER_PRIVATE_KEY ||
   "ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
 
-const CONTRACTS_PATH = "../packages/contracts/out/";
+const CONTRACTS_PATH = "./artifacts/contracts/";
 
 // Helper function to recursively find all .sol directories
 function findSolDirectories(dir: string): string[] {
@@ -31,9 +31,13 @@ function findSolDirectories(dir: string): string[] {
 }
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-  const { deployments, getNamedAccounts, ethers, config, network } = hre;
+  const { deployments, ethers, config, network } = hre;
   const { deploy, save, getOrNull } = deployments;
-  const { deployer: deployerAddress } = await getNamedAccounts();
+
+  // Get the deployer address from the private key
+  const provider = new ethers.JsonRpcProvider(network.config.url);
+  const deployerWallet = new ethers.Wallet(DEPLOYER_PRIVATE_KEY, provider);
+  const deployerAddress = deployerWallet.address;
 
   console.log("deployerAddress", deployerAddress);
 
@@ -45,6 +49,11 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     // @ts-ignore
     const provider = new ethers.JsonRpcProvider(network.config.url);
     const deployer = new ethers.Wallet(DEPLOYER_PRIVATE_KEY, provider);
+
+    const [accounte] = await ethers.getSigners();
+    console.log("account address",await accounte.getAddress());
+    const balance = await accounte.provider.getBalance(await accounte.getAddress());
+    console.log("account balance",balance.toString());
 
     checkmateValidatorAddress = await deployWasmContract(
       wasmBinaryPath,
@@ -100,15 +109,27 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     console.log("Deploying GreetingWithWorld contract...");
     const fluentGreetingContractAddress = checkmateValidatorAddress;
 
-  const greetingWithWorld = await deploy("GreetingWithWorld", {
-    from: deployerAddress,
-    args: [fluentGreetingContractAddress],
-    log: true,
-  });
+    const greetingWithWorld = await deploy("GreetingWithWorld", {
+      from: deployerAddress,
+      args: [fluentGreetingContractAddress],
+      log: true,
+    });
 
-  console.log(
-    `GreetingWithWorld contract deployed at: ${greetingWithWorld.address}`
-  );
+    console.log(
+      `GreetingWithWorld contract deployed at: ${greetingWithWorld.address}`
+    );
+
+  // // Verify the contract on Blockscout
+  // try {
+  //   await hre.run("verify:verify", {
+  //     address: greetingWithWorld.address,
+  //     constructorArguments: [checkmateValidatorAddress],
+  //   });
+  //   console.log("GreetingWithWorld verified on Blockscout");
+  // } catch (err: any) {
+  //   console.error("Verification failed for GreetingWithWorld:", err.message);
+  // }
+  }
 };
 
 async function deployWasmContract(
@@ -165,6 +186,7 @@ async function deployWasmContract(
 
   return receipt.contractAddress;
 }
+
 
 export default func;
 func.tags = ["all"];

@@ -3,7 +3,9 @@ import { HardhatUserConfig } from 'hardhat/config';
 import '@nomicfoundation/hardhat-toolbox';
 import '@fluent.xyz/hardhat-plugin';
 import '@nomicfoundation/hardhat-ignition';
+import '@nomicfoundation/hardhat-verify';
 import 'hardhat-deploy';
+import './tasks/greeting';
 
 // NB we will generally not use this for MUD as we run the deploys from 
 // the MUD package and this uses forge under the hood to then deploy 
@@ -29,10 +31,10 @@ const config: HardhatUserConfig = {
       url: 'https://rpc.dev.gblend.xyz/',
       accounts: [DEPLOYER_PRIVATE_KEY],
       chainId: 20993,
-    },
+    }
   },
   solidity: {
-    version: '0.8.24',
+    version: '0.8.20',
     settings: {
       optimizer: {
         enabled: true,
@@ -47,14 +49,26 @@ const config: HardhatUserConfig = {
       paths: [],
       ignore: []
     }
+  },
+  etherscan: {
+    apiKey: {
+      dev: "dummy", // BlockScout doesn't require API key
+    },
+    customChains: [
+      {
+        network: "dev",
+        chainId: 20993,
+        urls: {
+          apiURL: "https://blockscout.dev.gblend.xyz/api",
+          browserURL: "https://blockscout.dev.gblend.xyz"
+        }
+      }
+    ]
+  },
+  sourcify: {
+    enabled: false,
   }
 };
 
+
 export default config;
-
-
-
-
-
-
-
